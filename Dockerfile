@@ -9,7 +9,7 @@ RUN yum install rubygems ruby-devel -y && gem install bundler  && bundle config 
 RUN  vagrant plugin install vagrant-libvirt
 RUN vagrant plugin install vagrant-cachier
 
-RUN yum install dbus openssh-clients rsync -y
+RUN yum install  openssh-clients rsync -y
 
 # RUN yum -y swap -- remove systemd-container systemd-container-libs -- install systemd systemd-libs
 
