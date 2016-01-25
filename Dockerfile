@@ -1,5 +1,5 @@
 FROM centos:7
-MAINTAINER michael@faille.io <michael@faille.io>
+MAINTAINER Michael Faille <michael@faille.io>
 
 ENV VAGRANT_DEFAULT_PROVIDER=libvirt
 
