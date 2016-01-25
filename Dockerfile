@@ -10,6 +10,8 @@ RUN  vagrant plugin install vagrant-libvirt
 RUN vagrant plugin install vagrant-cachier
 
 RUN yum install  openssh-clients rsync -y
+RUN mkdir /root/vagrantProject
+WORKDIR /root/vagrantProject
 
 # RUN yum -y swap -- remove systemd-container systemd-container-libs -- install systemd systemd-libs
 
@@ -47,9 +49,10 @@ RUN yum install  openssh-clients rsync -y
 # RUN systemctl enable libvirtd && systemctl disable network
 # ADD changekvmgroup.service /usr/lib/systemd/system/changekvmgroup.service
 # RUN systemctl enable changekvmgroup.service
-ADD run.sh run.sh
+ADD run.sh /run.sh
 
 RUN yum install -y dbus \
   && sed -i -e "s/OOMScoreAdjust/# OOMScoreAdjust/" /usr/lib/systemd/system/dbus.service
 
-ENTRYPOINT ["./run.sh"]
+
+ENTRYPOINT ["/run.sh"]
